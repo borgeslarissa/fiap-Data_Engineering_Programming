@@ -37,7 +37,6 @@ def configurar_logging() -> None:
 def main() -> None:
     """
     Ponto de entrada da aplicação.
-
     Aggregation Root: instancia e injeta todas as dependências.
     """
     logger = logging.getLogger(__name__)
