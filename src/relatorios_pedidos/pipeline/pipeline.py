@@ -1,8 +1,8 @@
 import logging
 
-from relatorio_pedidos.config.settings import Settings
-from relatorio_pedidos.io_utils.data_handler import DataHandler
-from relatorio_pedidos.processing.transformations import Transformation
+from relatorios_pedidos.config.settings import Settings
+from relatorios_pedidos.io_utils.data_handler import DataHandler
+from relatorios_pedidos.processing.transformations import Transformation
 
 logger = logging.getLogger(__name__)
 
@@ -12,8 +12,8 @@ class Pipeline:
     Classe responsável por orquestrar o pipeline de dados.
 
     Recebe todas as dependências via construtor (injeção de dependências):
-      - Settings  → configurações
-      - DataHandler → I/O
+      - Settings       → configurações
+      - DataHandler    → I/O
       - Transformation → lógica de negócio
 
     Não instancia nenhuma dependência internamente.
@@ -32,7 +32,6 @@ class Pipeline:
     def executar(self) -> None:
         """
         Executa as etapas do pipeline na sequência:
-
         1. Carga dos pedidos (CSV)
         2. Carga dos pagamentos (JSON)
         3. Cálculo do valor total do pedido
@@ -54,7 +53,6 @@ class Pipeline:
             header=self._settings.pedidos_csv_header,
             sep=self._settings.pedidos_csv_sep,
         )
-
         pagamentos_df = self._data_handler.ler_pagamentos(
             path=self._settings.path_pagamentos,
             compression=self._settings.pagamentos_json_compression,
