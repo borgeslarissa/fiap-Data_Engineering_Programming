@@ -26,12 +26,12 @@ from pyspark.sql.types import (
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-from relatorio_pedidos.processing.transformations import Transformation
+from relatorios_pedidos.processing.transformations import Transformation
 
 
-# ------------------------------------------------------------------
+
 # Fixtures
-# ------------------------------------------------------------------
+-
 
 @pytest.fixture(scope="session")
 def spark():
@@ -54,9 +54,8 @@ def transformer():
     return Transformation()
 
 
-# ------------------------------------------------------------------
 # Teste 1 — calcular_valor_total
-# ------------------------------------------------------------------
+
 
 def test_calcular_valor_total(spark, transformer):
     """
@@ -89,9 +88,9 @@ def test_calcular_valor_total(spark, transformer):
     assert linhas["p-003"] == pytest.approx(200.0, abs=0.01)
 
 
-# ------------------------------------------------------------------
+
 # Teste 2 — filtrar_pedidos_por_ano
-# ------------------------------------------------------------------
+
 
 def test_filtrar_pedidos_por_ano(spark, transformer):
     """
@@ -119,9 +118,9 @@ def test_filtrar_pedidos_por_ano(spark, transformer):
     assert ids == {"p-2025-a", "p-2025-b"}
 
 
-# ------------------------------------------------------------------
+
 # Teste 3 — filtrar_pagamentos_recusados_legitimos
-# ------------------------------------------------------------------
+
 
 def test_filtrar_pagamentos_recusados_legitimos(spark, transformer):
     """
@@ -152,9 +151,8 @@ def test_filtrar_pagamentos_recusados_legitimos(spark, transformer):
     assert ids == {"p1", "p5"}
 
 
-# ------------------------------------------------------------------
+
 # Teste 4 — ordenar_relatorio
-# ------------------------------------------------------------------
 
 def test_ordenar_relatorio(spark, transformer):
     """
