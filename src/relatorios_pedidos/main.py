@@ -11,11 +11,11 @@ Este é o único ponto da aplicação responsável por:
 import logging
 import sys
 
-from relatorio_pedidos.config.settings import Settings
-from relatorio_pedidos.io_utils.data_handler import DataHandler
-from relatorio_pedidos.pipeline.pipeline import Pipeline
-from relatorio_pedidos.processing.transformations import Transformation
-from relatorio_pedidos.session.spark_session_manager import SparkSessionManager
+from relatorios_pedidos.config.settings import Settings
+from relatorios_pedidos.io_utils.data_handler import DataHandler
+from relatorios_pedidos.pipeline.pipeline import Pipeline
+from relatorios_pedidos.processing.transformations import Transformation
+from relatorios_pedidos.session.spark_session_manager import SparkSessionManager
 
 
 def configurar_logging() -> None:
